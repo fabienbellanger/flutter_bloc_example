@@ -63,7 +63,10 @@ class IncrementBloc implements BlocBase {
 
     print('=======>  HTTP : ' + uri.toString());
     String response = await _getRequest(uri);
-    if (response != null) print(response);
+
+    if (response != null) {
+      print(response);
+    }
 
     return response;
   }
@@ -75,8 +78,6 @@ class IncrementBloc implements BlocBase {
     try {
       var request = await _httpClient.getUrl(uri);
       var response = await request.close();
-      
-      _httpClient.get(host, port, path)
 
       return response.transform(utf8.decoder).join();
     } catch (e) {
