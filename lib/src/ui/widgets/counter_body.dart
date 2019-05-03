@@ -9,10 +9,8 @@ import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
 class CounterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final IncrementBloc _incrementBloc =
-        BlocProvider.of<IncrementBloc>(context);
-    final NavigationBloc _navigationBloc =
-        BlocProvider.of<NavigationBloc>(context);
+    final IncrementBloc _incrementBloc = BlocProvider.of<IncrementBloc>(context);
+    final NavigationBloc _navigationBloc = BlocProvider.of<NavigationBloc>(context);
 
     return Center(
       child: StreamBuilder<int>(
@@ -26,8 +24,7 @@ class CounterBody extends StatelessWidget {
                 StreamBuilder(
                   stream: _navigationBloc.itemStream,
                   initialData: _navigationBloc.defaultItem,
-                  builder: (BuildContext context,
-                      AsyncSnapshot<NavBarItem> snapshot) {
+                  builder: (BuildContext context, AsyncSnapshot<NavBarItem> snapshot) {
                     switch (snapshot.data) {
                       case NavBarItem.HOME:
                         return Text('HOME');

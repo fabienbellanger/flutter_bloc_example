@@ -8,8 +8,7 @@ import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
 class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final NavigationBloc _navigationBloc =
-        BlocProvider.of<NavigationBloc>(context);
+    final NavigationBloc _navigationBloc = BlocProvider.of<NavigationBloc>(context);
 
     /// Items list
     List<BottomNavigationBarItem> _items = [

@@ -5,8 +5,7 @@ import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 enum NavBarItem { HOME, ALERT, SETTINGS }
 
 class NavigationBloc implements BlocBase {
-  final StreamController<NavBarItem> _navBarController =
-      StreamController<NavBarItem>.broadcast();
+  final StreamController<NavBarItem> _navBarController = StreamController<NavBarItem>.broadcast();
 
   NavBarItem defaultItem = NavBarItem.HOME;
 
@@ -26,11 +25,7 @@ class NavigationBloc implements BlocBase {
     }
   }
 
-  close() {
-    _navBarController?.close();
-  }
-
   dispose() {
-    close();
+    _navBarController?.close();
   }
 }

@@ -7,8 +7,7 @@ import 'package:flutter_bloc_example/src/ui/widgets/counter_body.dart';
 class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final IncrementBloc _incrementBloc =
-        BlocProvider.of<IncrementBloc>(context);
+    final IncrementBloc _incrementBloc = BlocProvider.of<IncrementBloc>(context);
 
     return Scaffold(
       appBar: AppBar(title: Text('BLoC version of the Counter App')),

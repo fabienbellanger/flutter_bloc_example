@@ -49,7 +49,7 @@ class IncrementBloc implements BlocBase {
 
     _inUpdate.add(_counter);
 
-    // testGet();
+    testGet();
   }
 
   ///
@@ -58,7 +58,7 @@ class IncrementBloc implements BlocBase {
   Future<String> testGet() async {
     // var uri = Uri.https('api.web-caisse.com', 'pomona/getGuest', <String, String>{
     var uri = Uri.http('api.web-caisse.dev', 'pomona/getGuest', <String, String>{
-      'id': '82583',
+      'id': '825830908878990',
       'type': 'category',
       'barcode': '0209127006432',
     });
@@ -67,7 +67,7 @@ class IncrementBloc implements BlocBase {
     String response = await _getRequest(uri);
 
     if (response != null) {
-      print(response);
+      print('<=======  ' + response);
     }
 
     return response;
@@ -78,12 +78,12 @@ class IncrementBloc implements BlocBase {
   ///
   Future<String> _getRequest(Uri uri) async {
     try {
-      var request = await _httpClient.getUrl(uri);
-      var response = await request.close();
+      HttpClientRequest request = await _httpClient.getUrl(uri);
+      HttpClientResponse response = await request.close();
 
       return response.transform(utf8.decoder).join();
     } catch (e) {
-      print(e.toString());
+      print('<=======  ' + e.toString());
 
       return null;
     }
