@@ -1,10 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
-
 enum NavBarItem { HOME, ALERT, SETTINGS }
 
-class NavigationBloc implements BlocBase {
+class NavigationBloc {
   final StreamController<NavBarItem> _navBarController = StreamController<NavBarItem>.broadcast();
 
   NavBarItem defaultItem = NavBarItem.HOME;
@@ -23,10 +21,6 @@ class NavigationBloc implements BlocBase {
         _navBarController.sink.add(NavBarItem.SETTINGS);
         break;
     }
-  }
-
-  void dispose() {
-    _navBarController?.close();
   }
 
   close() {
