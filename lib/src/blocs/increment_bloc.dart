@@ -5,10 +5,10 @@ import 'dart:io';
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 
 class IncrementBloc implements BlocBase {
-  int _counter;
-  int counterInitial = 0;
+  final int counterInitial = 0;
+  final HttpClient _httpClient = new HttpClient();
 
-  final _httpClient = new HttpClient();
+  int _counter;
 
   //
   // Stream to handle the counter
@@ -57,7 +57,7 @@ class IncrementBloc implements BlocBase {
   ///
   Future<String> testGet() async {
     // var uri = Uri.https('api.web-caisse.com', 'pomona/getGuest', <String, String>{
-    var uri = Uri.http('api.web-caisse.dev', 'pomona/getGuest', <String, String>{
+    Uri uri = Uri.http('api.web-caisse.dev', 'pomona/getGuest', <String, String>{
       'id': '825830908878990',
       'type': 'category',
       'barcode': '0209127006432',
