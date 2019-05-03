@@ -16,6 +16,10 @@ class MyApp extends StatelessWidget {
       home: BlocProvider<IncrementBloc>(
         bloc: IncrementBloc(),
         child: CounterPage(),
+        /*child: BlocProvider<NavigationBloc>(
+          bloc: NavigationBloc(),
+          child: CounterPage(),
+        ),*/
       ),
     );
   }
