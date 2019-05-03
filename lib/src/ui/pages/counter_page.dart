@@ -9,7 +9,7 @@ class CounterPage extends StatelessWidget {
     final IncrementBloc bloc = BlocProvider.of<IncrementBloc>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Stream version of the Counter App')),
+      appBar: AppBar(title: Text('BLoC version of the Counter App')),
       body: Center(
         child: StreamBuilder<int>(
             stream: bloc.outCounter,
