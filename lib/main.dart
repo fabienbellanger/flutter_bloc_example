@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 import 'package:flutter_bloc_example/src/blocs/increment_bloc.dart';
+import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
 import 'package:flutter_bloc_example/src/ui/pages/counter_page.dart';
 
 void main() => runApp(MyApp());
@@ -13,13 +14,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<IncrementBloc>(
-        bloc: IncrementBloc(),
-        child: CounterPage(),
-        /*child: BlocProvider<NavigationBloc>(
-          bloc: NavigationBloc(),
+      home: BlocProvider<NavigationBloc>(
+        bloc: NavigationBloc(),
+        child: BlocProvider<IncrementBloc>(
+          bloc: IncrementBloc(),
           child: CounterPage(),
-        ),*/
+        ),
       ),
     );
   }
