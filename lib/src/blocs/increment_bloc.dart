@@ -13,7 +13,7 @@ class IncrementBloc implements BlocBase {
   //
   // Stream to handle the counter
   //
-  StreamController<int> _counterController = StreamController<int>();
+  StreamController<int> _counterController = StreamController<int>.broadcast();
   StreamSink<int> get _inUpdate => _counterController.sink;
   Stream<int> get outCounter => _counterController.stream;
 

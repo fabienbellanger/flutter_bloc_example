@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
+import 'package:flutter_bloc_example/src/ui/widgets/bottom_nav_item_badge.dart';
 
 ///
 /// BottomNavigationBar class
@@ -10,22 +11,6 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final NavigationBloc _navigationBloc = BlocProvider.of<NavigationBloc>(context);
 
-    /// Items list
-    List<BottomNavigationBarItem> _items = [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        title: Text('Home'),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.access_alarm),
-        title: Text('Alert'),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        title: Text('Settings'),
-      ),
-    ];
-
     return StreamBuilder(
       stream: _navigationBloc.itemStream,
       initialData: _navigationBloc.defaultItem,
@@ -34,7 +19,20 @@ class BottomNavBar extends StatelessWidget {
           fixedColor: Colors.blueAccent,
           currentIndex: snapshot.data.index,
           onTap: _navigationBloc.pickItem,
-          items: _items,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.access_alarm),
+              title: Text('Alert'),
+            ),
+            BottomNavigationBarItem(
+              icon: BottomNavItemBadge(),
+              title: Text('Settings'),
+            ),
+          ],
         );
       },
     );
