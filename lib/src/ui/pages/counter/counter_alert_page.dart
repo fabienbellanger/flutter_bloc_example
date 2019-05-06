@@ -15,14 +15,27 @@ class CounterAlert extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Text('ALERT'),
-          RaisedButton(
-            child: const Text('Decrement'),
-            onPressed: () {
-              if (_incrementBloc.counter > 0) {
-                _incrementBloc.updateCounter.add("delete");
-              }
-            },
-          ),
+          StreamBuilder(
+              stream: _incrementBloc.outCounter,
+              initialData: _incrementBloc.counter,
+              builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+                return RaisedButton(
+                  color: Colors.orange,
+                  textColor: Colors.white,
+                  disabledColor: Colors.grey,
+                  disabledTextColor: Colors.white70,
+                  padding: const EdgeInsets.all(10.0),
+                  child: const Text(
+                    'Decrement',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                  onPressed: (_incrementBloc.counter <= 0)
+                      ? null
+                      : () {
+                          _incrementBloc.updateCounter.add("delete");
+                        },
+                );
+              }),
         ],
       ),
     );

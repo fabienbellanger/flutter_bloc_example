@@ -10,7 +10,7 @@ class CounterPage extends StatelessWidget {
     final IncrementBloc _incrementBloc = BlocProvider.of<IncrementBloc>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('BLoC version of the Counter App')),
+      appBar: AppBar(title: Text('BLoC Example App')),
       body: CounterBody(),
       bottomNavigationBar: CustomBottomAppBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
