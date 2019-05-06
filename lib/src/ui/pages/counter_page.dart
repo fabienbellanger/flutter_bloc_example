@@ -22,26 +22,6 @@ class CounterPage extends StatelessWidget {
           _incrementBloc.updateCounter.add("add");
         },
       ),
-      /*floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-            tooltip: 'Increment',
-            elevation: 2.0,
-            child: const Icon(Icons.add),
-            onPressed: () {
-              _incrementBloc.updateCounter.add("add");
-            },
-          ),
-          SizedBox(width: 10),
-          FloatingActionButton(
-            child: const Icon(Icons.remove),
-            onPressed: () {
-              _incrementBloc.updateCounter.add("remove");
-            },
-          ),
-        ],
-      ),*/
     );
   }
 }
