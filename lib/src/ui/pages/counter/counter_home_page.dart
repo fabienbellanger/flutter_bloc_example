@@ -13,7 +13,7 @@ class CounterHome extends StatelessWidget {
     return Center(
       child: StreamBuilder<int>(
           stream: _incrementBloc.outCounter,
-          initialData: _incrementBloc.counterInitial,
+          initialData: _incrementBloc.counter,
           builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

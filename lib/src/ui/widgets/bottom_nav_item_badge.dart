@@ -12,7 +12,7 @@ class BottomNavItemBadge extends StatelessWidget {
 
     return StreamBuilder(
       stream: _incrementBloc.outCounter,
-      initialData: _incrementBloc.counterInitial,
+      initialData: _incrementBloc.counter,
       builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
         final widgets = <Widget>[
           Icon(Icons.notifications),

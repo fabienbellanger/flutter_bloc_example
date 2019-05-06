@@ -5,10 +5,10 @@ import 'dart:io';
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 
 class IncrementBloc implements BlocBase {
-  final int counterInitial = 0;
+  final int _counterInitial = 0;
   final HttpClient _httpClient = new HttpClient();
 
-  int _counter;
+  int counter;
 
   //
   // Stream to handle the counter
@@ -27,7 +27,7 @@ class IncrementBloc implements BlocBase {
   // Constructor
   //
   IncrementBloc() {
-    _counter = counterInitial;
+    counter = _counterInitial;
     _actionController.stream.listen(_handleLogic);
   }
 
@@ -38,18 +38,18 @@ class IncrementBloc implements BlocBase {
 
   void _handleLogic(String data) {
     if (data == 'add') {
-      _counter = _counter + 1;
+      counter = counter + 1;
     } else {
-      if (_counter == 0) {
-        _counter = 0;
+      if (counter == 0) {
+        counter = 0;
       } else {
-        _counter = _counter - 1;
+        counter = counter - 1;
       }
     }
 
-    _inUpdate.add(_counter);
+    _inUpdate.add(counter);
 
-    testGet();
+    // testGet();
   }
 
   ///
