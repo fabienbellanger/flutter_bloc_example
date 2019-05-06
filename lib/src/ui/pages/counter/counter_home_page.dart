@@ -18,7 +18,13 @@ class CounterHome extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('You hit me: ${snapshot.data} times'),
+                Text(
+                  snapshot.data.toString(),
+                  style: TextStyle(
+                    fontSize: 64.0,
+                    color: Colors.blue,
+                  ),
+                ),
                 Text('HOME'),
               ],
             );

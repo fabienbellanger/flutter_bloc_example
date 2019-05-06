@@ -3,9 +3,9 @@ import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 import 'package:flutter_bloc_example/src/blocs/increment_bloc.dart';
 
 ///
-/// BottomNavigationItem class
+/// CustomBottomAppItemBadge class
 ///
-class BottomNavItemBadge extends StatelessWidget {
+class CustomBottomAppItemBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final IncrementBloc _incrementBloc = BlocProvider.of<IncrementBloc>(context);
@@ -20,7 +20,7 @@ class BottomNavItemBadge extends StatelessWidget {
 
         if (snapshot.data > 0) {
           widgets.add(Positioned(
-            top: -6.0,
+            top: -4.0,
             right: -6.0,
             child: Container(
               padding: EdgeInsets.all(2.0),

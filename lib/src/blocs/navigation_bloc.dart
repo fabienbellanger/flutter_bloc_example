@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 
-enum NavBarItem { HOME, ALERT, SETTINGS }
+enum NavBarItem { HOME, ALERT }
 
 class NavigationBloc implements BlocBase {
   final StreamController<NavBarItem> _navBarController = StreamController<NavBarItem>.broadcast();
@@ -18,9 +18,6 @@ class NavigationBloc implements BlocBase {
         break;
       case 1:
         _navBarController.sink.add(NavBarItem.ALERT);
-        break;
-      case 2:
-        _navBarController.sink.add(NavBarItem.SETTINGS);
         break;
     }
   }

@@ -3,7 +3,6 @@ import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
 import 'package:flutter_bloc_example/src/ui/pages/counter/counter_alert_page.dart';
 import 'package:flutter_bloc_example/src/ui/pages/counter/counter_home_page.dart';
-import 'package:flutter_bloc_example/src/ui/pages/counter/counter_settings_page.dart';
 
 ///
 /// CounterBody class
@@ -23,8 +22,6 @@ class CounterBody extends StatelessWidget {
               return CounterHome();
             case NavBarItem.ALERT:
               return CounterAlert();
-            case NavBarItem.SETTINGS:
-              return CounterSettings();
           }
         },
       ),
