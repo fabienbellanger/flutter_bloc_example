@@ -7,10 +7,43 @@ import 'package:flutter_bloc_example/src/ui/pages/tabbar_page.dart';
 ///
 /// CounterHome class
 ///
-class CounterHome extends StatelessWidget {
+class CounterHome extends StatefulWidget {
+  @override
+  _CounterHomeState createState() => _CounterHomeState();
+}
+
+class _CounterHomeState extends State<CounterHome> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> animationSize;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = new AnimationController(
+      duration: const Duration(milliseconds: 200),
+      vsync: this,
+    );
+
+    _controller.addListener(() {
+      setState(() {});
+    });
+
+    animationSize = new Tween(begin: 5.0, end: 64.0).animate(_controller);
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final IncrementBloc _incrementBloc = BlocProvider.of<IncrementBloc>(context);
+    double size = animationSize?.value;
 
     return Center(
       child: StreamBuilder<int>(
@@ -23,7 +56,7 @@ class CounterHome extends StatelessWidget {
                 Text(
                   snapshot.data.toString(),
                   style: TextStyle(
-                    fontSize: 64.0,
+                    fontSize: size,
                     color: Colors.blue,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
 import 'package:flutter_bloc_example/src/models/Category.dart';
@@ -19,6 +20,7 @@ class TabBarPage extends StatelessWidget {
             appBar: AppBar(
               bottom: TabBar(
                 isScrollable: true,
+                labelPadding: EdgeInsets.symmetric(horizontal: 24.0),
                 tabs: _getTabs(snapshot.data),
               ),
               title: Text('Tabs Demo'),
