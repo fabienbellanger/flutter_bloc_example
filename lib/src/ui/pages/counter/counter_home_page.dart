@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_example/src/blocs/bloc_provider.dart';
 import 'package:flutter_bloc_example/src/blocs/increment_bloc.dart';
+import 'package:flutter_bloc_example/src/blocs/navigation_bloc.dart';
+import 'package:flutter_bloc_example/src/ui/pages/tabbar_page.dart';
 
 ///
 /// CounterHome class
@@ -26,6 +28,25 @@ class CounterHome extends StatelessWidget {
                   ),
                 ),
                 Text('HOME'),
+                RaisedButton(
+                  color: Colors.orange,
+                  textColor: Colors.white,
+                  disabledColor: Colors.grey,
+                  disabledTextColor: Colors.white70,
+                  padding: const EdgeInsets.all(10.0),
+                  child: const Text(
+                    'Go to TabBar Page',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                      return BlocProvider<NavigationBloc>(
+                        bloc: NavigationBloc(),
+                        child: TabBarPage(),
+                      );
+                    }));
+                  },
+                ),
               ],
             );
           }),

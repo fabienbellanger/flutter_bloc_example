@@ -10,22 +10,22 @@ class IncrementBloc implements BlocBase {
 
   int counter;
 
-  //
-  // Stream to handle the counter
-  //
+  ///
+  /// Stream to handle the counter
+  ///
   StreamController<int> _counterController = StreamController<int>.broadcast();
   StreamSink<int> get _inUpdate => _counterController.sink;
   Stream<int> get outCounter => _counterController.stream;
 
-  //
-  // Stream to handle the action on the counter
-  //
+  ///
+  /// Stream to handle the action on the counter
+  ///
   StreamController<String> _actionController = StreamController<String>();
   StreamSink<String> get updateCounter => _actionController.sink;
 
-  //
-  // Constructor
-  //
+  ///
+  /// Constructor
+  ///
   IncrementBloc() {
     counter = _counterInitial;
     _actionController.stream.listen(_handleLogic);

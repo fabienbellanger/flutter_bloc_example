@@ -25,7 +25,7 @@ class CustomBottomAppBar extends StatelessWidget {
                 iconSize: 35.0,
                 color: (snapshot.data == NavBarItem.HOME) ? Colors.blue : Colors.grey,
                 onPressed: () {
-                  _navigationBloc.pickItem(0);
+                  _navigationBloc.selectAppBarItem(0);
                 },
               ),
               IconButton(
@@ -33,7 +33,7 @@ class CustomBottomAppBar extends StatelessWidget {
                 iconSize: 35.0,
                 color: (snapshot.data == NavBarItem.ALERT) ? Colors.blue : Colors.grey,
                 onPressed: () {
-                  _navigationBloc.pickItem(1);
+                  _navigationBloc.selectAppBarItem(1);
                 },
               ),
             ],
