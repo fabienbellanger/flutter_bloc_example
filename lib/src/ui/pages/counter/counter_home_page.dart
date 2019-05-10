@@ -13,37 +13,37 @@ class CounterHome extends StatefulWidget {
 }
 
 class _CounterHomeState extends State<CounterHome> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> animationSize;
+  AnimationController _animationController;
+  Animation<double> _animationSize;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = new AnimationController(
+    _animationController = new AnimationController(
       duration: const Duration(milliseconds: 200),
       vsync: this,
     );
 
-    _controller.addListener(() {
+    _animationController.addListener(() {
       setState(() {});
     });
 
-    animationSize = new Tween(begin: 5.0, end: 64.0).animate(_controller);
+    _animationSize = new Tween(begin: 5.0, end: 64.0).animate(_animationController);
 
-    _controller.forward();
+    _animationController.forward();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final IncrementBloc _incrementBloc = BlocProvider.of<IncrementBloc>(context);
-    double size = animationSize?.value;
+    double size = _animationSize?.value;
 
     return Center(
       child: StreamBuilder<int>(
