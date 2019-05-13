@@ -75,7 +75,7 @@ class _TextCounterState extends State<TextCounter> with SingleTickerProviderStat
     counter = widget.counter;
 
     _animationController = new AnimationController(
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 400),
       vsync: this,
     );
 
@@ -83,7 +83,7 @@ class _TextCounterState extends State<TextCounter> with SingleTickerProviderStat
       setState(() {});
     });
 
-    _animationSize = new Tween(begin: 5.0, end: 64.0).animate(_animationController);
+    _animationSize = new Tween(begin: 5.0, end: 70.0).animate(_animationController);
 
     _animationController.forward();
   }
