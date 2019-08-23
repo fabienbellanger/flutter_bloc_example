@@ -56,8 +56,12 @@ class _CounterHomeState extends State<CounterHome> with SingleTickerProviderStat
                   AnimatedSwitcher(
                     // animation: _animationController,
                     duration: const Duration(milliseconds: 200),
+                    transitionBuilder: (Widget child, Animation<double> animation) {
+                      return ScaleTransition(child: child, scale: animation);
+                    },
                     child: Text(
                       snapshot.data.toString(),
+                      key: ValueKey<int>(snapshot.data),
                       style: TextStyle(
                         fontSize: size,
                         color: Colors.blue,
