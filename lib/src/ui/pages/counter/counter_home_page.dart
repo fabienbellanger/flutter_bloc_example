@@ -25,9 +25,11 @@ class _CounterHomeState extends State<CounterHome> with SingleTickerProviderStat
       vsync: this,
     );
     _animationController.addListener(() {
+      print('ici');
       setState(() {});
     });
     _animationSize = Tween(begin: 5.0, end: 64.0).animate(_animationController);
+    _animationController.forward();
     _animationController.forward();
   }
 
@@ -51,17 +53,16 @@ class _CounterHomeState extends State<CounterHome> with SingleTickerProviderStat
               return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  AnimatedBuilder(
-                    animation: _animationController,
-                    builder: (BuildContext context, Widget child) {
-                      return Text(
-                        snapshot.data.toString(),
-                        style: TextStyle(
-                          fontSize: size,
-                          color: Colors.blue,
-                        ),
-                      );
-                    },
+                  AnimatedSwitcher(
+                    // animation: _animationController,
+                    duration: const Duration(milliseconds: 200),
+                    child: Text(
+                      snapshot.data.toString(),
+                      style: TextStyle(
+                        fontSize: size,
+                        color: Colors.blue,
+                      ),
+                    ),
                   ),
                   RaisedButton(
                     color: Colors.orange,

@@ -33,14 +33,14 @@ class TestStreamBuilder extends StatefulWidget {
 class _TestStreamBuilderState extends State<TestStreamBuilder> with TickerProviderStateMixin {
   Stream<int> stream;
   AnimationController controller;
-  Animation colorAnimation;
+  Animation sizeAnimation;
 
   @override
   void initState() {
     super.initState();
     stream = Stream.periodic(Duration(milliseconds: 1000), (i) => i).take(10);
     controller = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    colorAnimation = ColorTween(begin: Colors.white, end: Colors.orange).animate(controller);
+    sizeAnimation = Tween(begin: 5.0, end: 60.0).animate(controller);
   }
 
   @override
@@ -58,7 +58,7 @@ class _TestStreamBuilderState extends State<TestStreamBuilder> with TickerProvid
                   builder: (BuildContext context, Widget child) {
                     return Text(
                       snapshot.data.toString(),
-                      style: TextStyle(color: colorAnimation.value),
+                      style: TextStyle(fontSize: sizeAnimation?.value),
                     );
                   },
                 );

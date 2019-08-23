@@ -20,7 +20,6 @@ class IncrementBloc implements BlocBase {
   StreamController<String> _actionController = StreamController<String>();
   StreamSink<String> get updateCounter => _actionController.sink;
 
-  ///
   /// Constructor
   ///
   IncrementBloc() {
